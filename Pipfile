@@ -9,6 +9,7 @@ verify_ssl = true
 ipython = "*"
 epc = "*"
 jedi = "*"
+graphviz = "*"
 
 [requires]
 python_version = "3.7"
