@@ -1,19 +1,10 @@
-"""
-dataset: https://archive.ics.uci.edu/ml/datasets/Adult
-"""
-
 import unittest
 import pandas as pd
 import decision_trees as dt
 
 class TestDecisionTrees(unittest.TestCase):
     def setUp(self):
-        self.data = pd.read_csv('dataset/adult.data', sep=', ', na_values='?', keep_default_na=False, engine='python')
-
-        self.cat_data = self.data.drop(columns=['age', 'fnlwgt', 'education_num', 'capital_gain', 'capital_loss', 'hours_per_week']).dropna()
-
-        self.data = self.cat_data.iloc[:100]
-
+        self.data = pd.read_excel('triple_all.xlsx')
         self.tree = dt.decision_tree(self.data)
 
     def tearDown(self):
