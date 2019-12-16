@@ -26,7 +26,7 @@ class Node:
         Node.graph.clear()
 
     def view_graph(self):
-        Node.graph.view()
+        Node.graph.render(view=True, format='png', renderer='cairo', formatter='cairo')
 
 def entropy(data):
     """

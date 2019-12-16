@@ -12,9 +12,9 @@ class TestDecisionTrees(unittest.TestCase):
         self.tree.reset_graph()
     
     def test_origin(self):
+        self.tree.view_graph()
+
         for _, row in self.test.iterrows():
             res = dt.predict(self.tree, row)
             self.assertEqual(res, row['target'])
-
-        self.tree.view_graph()
 
