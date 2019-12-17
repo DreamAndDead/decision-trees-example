@@ -10,11 +10,24 @@ class TestDecisionTrees(unittest.TestCase):
 
     def tearDown(self):
         self.tree.reset_graph()
-    
-    def test_origin(self):
+
+    def test_view(self):
         self.tree.view_graph()
 
+    def test_error_rate(self):
+        sum = 0
+        error = 0
         for _, row in self.test.iterrows():
-            res = dt.predict(self.tree, row)
-            self.assertEqual(res, row['target'])
+            sum += 1
+            
+            p = dt.predict(self.tree, row)
+            t = row['target']
 
+            if p != t:
+                error += 1
+                print(row.to_string())
+                print("mispredict target to %s" % p)
+                print()
+                
+        print("error rate = %d/%d = %f" % (error, sum, error / sum))
+        
